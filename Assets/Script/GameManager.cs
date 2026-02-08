@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+using UnityEngine;
+public class GameManager : MonoBehaviour
+{
+    public static GameManager Instance;
+    public PlayerStatBase[] joueur;
+    public List<PlayerStat> EquipeJ = new List<PlayerStat>();
+    public bool JoueurStart = false;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        for(int i=0;i<3;i++)
+        {
+            EquipeJ.Add(new PlayerStat());
+            EquipeJ[i].Setup(joueur[i],1);
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public DetailCombat detail;
+    public void LancerCombat(InfoCombat Info, StatBaseEnemie[] StatEquipe)
+    {
+        detail = new DetailCombat();    // pour être sur de remettre à zero detail à chaque combat
+        detail.Setup(Info, StatEquipe);
+    }
+}
