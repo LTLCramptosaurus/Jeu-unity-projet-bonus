@@ -28,12 +28,12 @@ public class PlayerCombat : MonoBehaviour
         
     }
 
-    public void Jouer()
+    public void Play()
     {
         
     }
 
-    public void PrendreDegat(int degat)
+    public void TakeDamage(int degat)
     {
         playerStat.TakeDamage(degat);
         hpBarre.UpdateSlider(playerStat.GetMaxHp(),playerStat.GetCurrentHp());

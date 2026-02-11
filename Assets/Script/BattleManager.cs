@@ -86,22 +86,22 @@ public class BattleManager : MonoBehaviour
             {
                 for(int i=0; i < playerCombat.Count; i++)
                 {
-                    playerCombat[i].Jouer();
+                    playerCombat[i].Play();
                 }
                 for(int i=0;i < Enemy.Count; i++)
                 {
-                    Enemy[i].Jouer();
+                    StartCoroutine(Enemy[i].Play(playerCombat));
                 }
             }
             else
             {
                 for(int i=0;i < Enemy.Count; i++)
                 {
-                    Enemy[i].Jouer();
+                    StartCoroutine(Enemy[i].Play(playerCombat));
                 }
                 for(int i=0; i < playerCombat.Count; i++)
                 {
-                    playerCombat[i].Jouer();
+                    playerCombat[i].Play();
                 }
             }
         }

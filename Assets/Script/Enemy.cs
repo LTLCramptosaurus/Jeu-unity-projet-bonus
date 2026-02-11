@@ -1,5 +1,8 @@
-using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
+using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
@@ -28,9 +31,12 @@ public class Enemy : MonoBehaviour
         hpBarre.UpdateSlider(statEnemy.GetHp(),statEnemy.GetCurrentHp());
     }
 
-    public void Jouer()
+    public IEnumerator Play(List<PlayerCombat> playerCombat)
     {
-        
+        int targetChoice = Random.Range(0,playerCombat.Count);
+        yield return new WaitForSeconds(30);
+        playerCombat[targetChoice].TakeDamage(statEnemy.GetAtk());
+        yield return new WaitForSeconds(30);
     }
 
     void Start()
