@@ -6,7 +6,7 @@ public class GestionFond : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spriteRenderer.sprite = GameManager.Instance.detail.Fond;
+        spriteRenderer.sprite = GameManager.Instance.detail.GetFond();
     }
 
     // Update is called once per frame

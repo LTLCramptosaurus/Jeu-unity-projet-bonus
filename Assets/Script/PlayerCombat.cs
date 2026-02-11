@@ -18,9 +18,9 @@ public class PlayerCombat : MonoBehaviour
         tempo.transform.SetParent(canvas.transform,false);
         tempo.transform.position = Camera.main.WorldToScreenPoint(co);      //le Camera machin truc c'est une fonction qui donne les co pour le canvas avec les co du vrai monde
         TMP_Text leTexte = tempo.GetComponentInChildren<TMP_Text>();
-        leTexte.text = pS.Nom;
+        leTexte.text = pS.GetNom();
         hpBarre = tempo.GetComponentInChildren<HpBarre>();
-        hpBarre.UpdateSlider(pS.MaxHp,pS.CurrentHp);
+        hpBarre.UpdateSlider(pS.GetMaxHp(),pS.GetCurrentHp());
     }
 
     void Start()
@@ -35,7 +35,7 @@ public class PlayerCombat : MonoBehaviour
 
     public void PrendreDegat(int degat)
     {
-        playerStat.CurrentHp -= degat;
-        hpBarre.UpdateSlider(playerStat.MaxHp,playerStat.CurrentHp);
+        playerStat.TakeDamage(degat);
+        hpBarre.UpdateSlider(playerStat.GetMaxHp(),playerStat.GetCurrentHp());
     }
 }

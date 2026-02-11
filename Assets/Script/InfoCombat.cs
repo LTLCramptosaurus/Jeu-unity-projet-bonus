@@ -12,26 +12,50 @@ public class InfoCombat : ScriptableObject
 public class DetailCombat
 {
     [Header("Variable importante")]
-    public Sprite Fond;
-    public AudioClip Music;
-    public StatEnemie[] Equipe;
-    public int TotalXp = 0;
-    public int TotalGold = 0;
+    Sprite Fond;
+    AudioClip Music;
+    StatEnemy[] Equipe;
+    int TotalXp = 0;
+    int TotalGold = 0;
 
-    public void Setup(InfoCombat info, StatBaseEnemie[] StatEquipe)
+    public DetailCombat(InfoCombat info, StatBaseEnemy[] StatEquipe)
     {
         Fond = info.Fond;
         Music = info.Music;
-        Equipe = new StatEnemie[StatEquipe.Length];
+        Equipe = new StatEnemy[StatEquipe.Length];
         for(int i = 0; i < StatEquipe.Length ; i++)
         {
-            Equipe[i] = new StatEnemie();
-            Equipe[i].Setup(StatEquipe[i],Random.Range(info.lvlMin,info.lvlMax+1));
+            Equipe[i] = new StatEnemy(StatEquipe[i], Random.Range(info.lvlMin, info.lvlMax + 1));
         }
-        foreach(StatEnemie enemie in Equipe)
+        foreach(StatEnemy enemy in Equipe)
         {
-            TotalGold += enemie.Gold;
-            TotalXp += enemie.Xp;
+            TotalGold += enemy.GetGold();
+            TotalXp += enemy.GetXp();
         }
+    }
+
+    public Sprite GetFond()
+    {
+        return Fond;
+    }
+
+    public AudioClip GetMusic()
+    {
+        return Music;
+    }
+
+    public StatEnemy[] GetEquipe()
+    {
+        return Equipe;
+    }
+
+    public int GetTotalXp()
+    {
+        return TotalXp;
+    }
+
+    public int GetTotalGold()
+    {
+        return TotalGold;
     }
 }

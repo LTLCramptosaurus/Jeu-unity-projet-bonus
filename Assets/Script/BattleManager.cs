@@ -17,18 +17,18 @@ public class BattleManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        nbEnemy = GameManager.Instance.detail.Equipe.Length;
+        nbEnemy = GameManager.Instance.detail.GetEquipe().Length;
         nbPlayer = GameManager.Instance.EquipeJ.Count;
         Position();
         for(int i=0; i < nbEnemy ; i++)
         {
-            GameObject EnemyTempo = Instantiate(GameManager.Instance.detail.Equipe[i].Prefab,EnemySpawn[i].position,Quaternion.identity);
+            GameObject EnemyTempo = Instantiate(GameManager.Instance.detail.GetEquipe()[i].GetPrefab(),EnemySpawn[i].position,Quaternion.identity);
             Enemy.Add(EnemyTempo.GetComponent<Enemy>());
-            Enemy[i].Setup(GameManager.Instance.detail.Equipe[i]);
+            Enemy[i].Setup(GameManager.Instance.detail.GetEquipe()[i]);
         }
         for(int i=0; i < nbPlayer ; i++)
         {
-            GameObject PlayerTempo = Instantiate(GameManager.Instance.EquipeJ[i].Prefab,PlayerSpawn[i].position,Quaternion.identity);
+            GameObject PlayerTempo = Instantiate(GameManager.Instance.EquipeJ[i].GetPrefab(),PlayerSpawn[i].position,Quaternion.identity);
             playerCombat.Add(PlayerTempo.GetComponent<PlayerCombat>());
             playerCombat[i].Setup(GameManager.Instance.EquipeJ[i]);
         }

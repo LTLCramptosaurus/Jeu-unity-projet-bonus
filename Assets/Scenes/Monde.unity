@@ -526,6 +526,18 @@ PrefabInstance:
       propertyPath: 'StatBE.Array.data[3]'
       value: 
       objectReference: {fileID: 11400000, guid: 75e8ae4204ae0374cbc533c681780321, type: 2}
+    - target: {fileID: -3540638883374589641, guid: 51342ca39692f6f42aa1d7358738e55d, type: 3}
+      propertyPath: StatBaseEnemy.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3540638883374589641, guid: 51342ca39692f6f42aa1d7358738e55d, type: 3}
+      propertyPath: 'StatBaseEnemy.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 75e8ae4204ae0374cbc533c681780321, type: 2}
+    - target: {fileID: -3540638883374589641, guid: 51342ca39692f6f42aa1d7358738e55d, type: 3}
+      propertyPath: 'StatBaseEnemy.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 75e8ae4204ae0374cbc533c681780321, type: 2}
     - target: {fileID: -588931255376928360, guid: 51342ca39692f6f42aa1d7358738e55d, type: 3}
       propertyPath: m_Size.x
       value: 1

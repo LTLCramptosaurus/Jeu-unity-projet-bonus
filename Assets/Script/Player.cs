@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             iaScript iaScript = collision.GetComponent<iaScript>();
-            GameManager.Instance.LancerCombat(iaScript.Info, iaScript.StatBE);
+            GameManager.Instance.LancerCombat(iaScript.Info, iaScript.StatBaseEnemy);
             SceneManager.LoadScene("Combat");
         }
     }

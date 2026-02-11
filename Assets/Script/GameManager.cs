@@ -25,8 +25,7 @@ public class GameManager : MonoBehaviour
     {
         for(int i=0;i<3;i++)
         {
-            EquipeJ.Add(new PlayerStat());
-            EquipeJ[i].Setup(joueur[i],1);
+            EquipeJ.Add(new PlayerStat(joueur[i], 1));
         }
     }
 
@@ -37,9 +36,8 @@ public class GameManager : MonoBehaviour
     }
 
     public DetailCombat detail;
-    public void LancerCombat(InfoCombat Info, StatBaseEnemie[] StatEquipe)
+    public void LancerCombat(InfoCombat Info, StatBaseEnemy[] StatEquipe)
     {
-        detail = new DetailCombat();    // pour être sur de remettre à zero detail à chaque combat
-        detail.Setup(Info, StatEquipe);
+        detail = new DetailCombat(Info, StatEquipe);    // pour être sur de remettre à zero detail à chaque combat
     }
 }

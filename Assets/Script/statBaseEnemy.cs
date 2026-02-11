@@ -1,9 +1,10 @@
 using System.Data;
+using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "statBaseEnemie", menuName = "Scriptable Objects/statBaseEnemie")]
-public class StatBaseEnemie : ScriptableObject
+[CreateAssetMenu(fileName = "statBaseEnemy", menuName = "Scriptable Objects/statBaseEnemy")]
+public class StatBaseEnemy : ScriptableObject
 {
     public GameObject Prefab;
     public int BaseHP;
@@ -12,17 +13,17 @@ public class StatBaseEnemie : ScriptableObject
     public int BaseGold;    //argent drop de base (pas forcement de l'or)
 }
 
-public class StatEnemie
+public class StatEnemy
 {
     [Header("Variable Principale")]
-    public int Hp;
-    public int CurrentHp;
-    public int Atk;
-    public int Xp;
-    public int Gold;
-    public string Nom;
-    public int Level;
-    public GameObject Prefab;
+    GameObject Prefab;
+    int Hp;
+    int CurrentHp;
+    int Atk;
+    int Xp;
+    int Gold;
+    string Nom;
+    int Level;
 
     [Header("Varibalbe Secondaire")]
     [SerializeField] float HpScale = 6f;        // le [SerializeField] permet d'afficher la variable dans l'inspecteur sans la rendre public
@@ -32,7 +33,7 @@ public class StatEnemie
     [SerializeField] float XpPower = 1.5f;
     [SerializeField] float GoldPower = 1.2f;
 
-    public void Setup(StatBaseEnemie stat, int lvl)
+    public StatEnemy(StatBaseEnemy stat, int lvl)
     {
         Hp = Mathf.FloorToInt((stat.BaseHP + HpScale) * Mathf.Pow(lvl, HpPower));    //hp en fonction du niveau : on fait hp de base + HpScale(=6) * le niveau^HpPower(=2.2) et tout ça arrondit au plus bas 
         CurrentHp = Hp;
@@ -42,5 +43,47 @@ public class StatEnemie
         Nom = stat.name;
         Prefab = stat.Prefab;
         Level = lvl;
+    }
+    public GameObject GetPrefab()
+    {
+        return Prefab;
+    }
+    public int GetHp()
+    {
+        return Hp;
+    }
+    public int GetCurrentHp()
+    {
+        return CurrentHp;
+    }
+
+    public int GetAtk()
+    {
+        return Atk;
+    }
+
+    public int GetXp()
+    {
+        return Xp;
+    }
+
+    public int GetGold()
+    {
+        return Gold;
+    }
+
+    public string GetNom()
+    {
+        return Nom;
+    }
+
+    public int GetLevel()
+    {
+        return Level;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        CurrentHp -= damage;
     }
 }
