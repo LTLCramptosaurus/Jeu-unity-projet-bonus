@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
@@ -33,7 +34,7 @@ public class BattleManager : MonoBehaviour
             playerCombat[i].Setup(GameManager.Instance.PlayerTeam[i]);
         }
 
-        
+        StartCoroutine(LancerCombat());
     }
 
     public void Position() //rempli les tableaux de spawner en fonction du nombre de joueur/enemy
@@ -77,43 +78,43 @@ public class BattleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Fin)
-        {
-            LancerCombat();
-        }
+        
             
     }
 
-    public void LancerCombat()
+    public IEnumerator LancerCombat()
     {
-        Debug.Log("1");
         if (GameManager.Instance.JoueurStart)
         {
-            Debug.Log("2");
             for (int i=0; i < playerCombat.Count; i++)
             {
-                Debug.Log("4");
                 playerCombat[i].Play();
+                yield return new WaitForSeconds(30); ;
             }
             for(int i=0;i < Enemy.Count; i++)
             {
-                Debug.Log("6");
                 StartCoroutine(Enemy[i].Play(playerCombat));
+                yield return new WaitForSeconds(30); ;
             }
         }
         else
         {
-            Debug.Log("3");
             for (int i=0;i < Enemy.Count; i++)
             {
                 Debug.Log("5");
                 StartCoroutine(Enemy[i].Play(playerCombat));
+                yield return new WaitForSeconds(30); ;
             }
             for(int i=0; i < playerCombat.Count; i++)
             {
                 Debug.Log("7");
-                playerCombat[i].Play();
+                playerCombat[i].Play(); 
+                yield return new WaitForSeconds(30); ;
             }
+        }
+        if (!Fin)
+        {
+            StartCoroutine(LancerCombat());
         }
     }
 }
