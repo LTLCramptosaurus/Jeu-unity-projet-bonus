@@ -18,7 +18,7 @@ public class BattleManager : MonoBehaviour
     void Start()
     {
         nbEnemy = GameManager.Instance.detail.GetEquipe().Length;
-        nbPlayer = GameManager.Instance.EquipeJ.Count;
+        nbPlayer = GameManager.Instance.PlayerTeam.Count;
         Position();
         for(int i=0; i < nbEnemy ; i++)
         {
@@ -28,9 +28,9 @@ public class BattleManager : MonoBehaviour
         }
         for(int i=0; i < nbPlayer ; i++)
         {
-            GameObject PlayerTempo = Instantiate(GameManager.Instance.EquipeJ[i].GetPrefab(),PlayerSpawn[i].position,Quaternion.identity);
+            GameObject PlayerTempo = Instantiate(GameManager.Instance.PlayerTeam[i].GetPrefab(),PlayerSpawn[i].position,Quaternion.identity);
             playerCombat.Add(PlayerTempo.GetComponent<PlayerCombat>());
-            playerCombat[i].Setup(GameManager.Instance.EquipeJ[i]);
+            playerCombat[i].Setup(GameManager.Instance.PlayerTeam[i]);
         }
     }
 

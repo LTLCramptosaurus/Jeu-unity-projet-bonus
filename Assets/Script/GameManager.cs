@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public PlayerStatBase[] joueur;
-    public List<PlayerStat> EquipeJ = new List<PlayerStat>();
+    public List<PlayerStat> PlayerTeam = new List<PlayerStat>();
     public bool JoueurStart = false;
 
     void Awake()
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     {
         for(int i=0;i<3;i++)
         {
-            EquipeJ.Add(new PlayerStat(joueur[i], 1));
+            PlayerTeam.Add(new PlayerStat(joueur[i], 1));
         }
     }
 
