@@ -32,6 +32,8 @@ public class BattleManager : MonoBehaviour
             playerCombat.Add(PlayerTempo.GetComponent<PlayerCombat>());
             playerCombat[i].Setup(GameManager.Instance.PlayerTeam[i]);
         }
+
+        
     }
 
     public void Position() //rempli les tableaux de spawner en fonction du nombre de joueur/enemy
@@ -75,34 +77,42 @@ public class BattleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!Fin)
+        {
+            LancerCombat();
+        }
+            
     }
 
     public void LancerCombat()
     {
-        while (!Fin)
+        Debug.Log("1");
+        if (GameManager.Instance.JoueurStart)
         {
-            if (GameManager.Instance.JoueurStart)
+            Debug.Log("2");
+            for (int i=0; i < playerCombat.Count; i++)
             {
-                for(int i=0; i < playerCombat.Count; i++)
-                {
-                    playerCombat[i].Play();
-                }
-                for(int i=0;i < Enemy.Count; i++)
-                {
-                    StartCoroutine(Enemy[i].Play(playerCombat));
-                }
+                Debug.Log("4");
+                playerCombat[i].Play();
             }
-            else
+            for(int i=0;i < Enemy.Count; i++)
             {
-                for(int i=0;i < Enemy.Count; i++)
-                {
-                    StartCoroutine(Enemy[i].Play(playerCombat));
-                }
-                for(int i=0; i < playerCombat.Count; i++)
-                {
-                    playerCombat[i].Play();
-                }
+                Debug.Log("6");
+                StartCoroutine(Enemy[i].Play(playerCombat));
+            }
+        }
+        else
+        {
+            Debug.Log("3");
+            for (int i=0;i < Enemy.Count; i++)
+            {
+                Debug.Log("5");
+                StartCoroutine(Enemy[i].Play(playerCombat));
+            }
+            for(int i=0; i < playerCombat.Count; i++)
+            {
+                Debug.Log("7");
+                playerCombat[i].Play();
             }
         }
     }
