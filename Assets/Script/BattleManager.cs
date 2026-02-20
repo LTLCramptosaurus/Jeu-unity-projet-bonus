@@ -89,12 +89,12 @@ public class BattleManager : MonoBehaviour
             for (int i=0; i < playerCombat.Count; i++)
             {
                 playerCombat[i].Play();
-                yield return new WaitForSeconds(30); ;
+                yield return new WaitForSeconds(10); ;
             }
             for(int i=0;i < Enemy.Count; i++)
             {
                 StartCoroutine(Enemy[i].Play(playerCombat));
-                yield return new WaitForSeconds(30); ;
+                yield return new WaitForSeconds(10); ;
             }
         }
         else
@@ -103,13 +103,13 @@ public class BattleManager : MonoBehaviour
             {
                 Debug.Log("5");
                 StartCoroutine(Enemy[i].Play(playerCombat));
-                yield return new WaitForSeconds(30); ;
+                yield return new WaitForSeconds(10); ;
             }
             for(int i=0; i < playerCombat.Count; i++)
             {
                 Debug.Log("7");
                 playerCombat[i].Play(); 
-                yield return new WaitForSeconds(30); ;
+                yield return new WaitForSeconds(10); ;
             }
         }
         if (!Fin)

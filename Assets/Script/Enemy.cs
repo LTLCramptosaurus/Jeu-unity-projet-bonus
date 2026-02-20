@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
         hpBarre.UpdateSlider(statEnemy.GetHp(),statEnemy.GetCurrentHp());
     }
 
-    public void PrendreDegat(int degat)
+    public void TakeDamage(int degat)
     {
         statEnemy.TakeDamage(degat);
         hpBarre.UpdateSlider(statEnemy.GetHp(),statEnemy.GetCurrentHp());
@@ -34,9 +34,9 @@ public class Enemy : MonoBehaviour
     public IEnumerator Play(List<PlayerCombat> playerCombat)
     {
         int targetChoice = Random.Range(0,playerCombat.Count);
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(10);
         playerCombat[targetChoice].TakeDamage(statEnemy.GetAtk());
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(10);
     }
 
     void Start()

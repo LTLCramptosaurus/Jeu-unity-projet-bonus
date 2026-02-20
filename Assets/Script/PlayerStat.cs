@@ -20,15 +20,15 @@ public class PlayerStat
 
     [Header("Varibalbe Secondaire")]
     // le [SerializeField] permet d'afficher la variable dans l'inspecteur sans la rendre public
-    [SerializeField] float HpPower = 1.3f;
-    [SerializeField] float AtkPower = 1.24f;
+    [SerializeField] float HpPower = 1.45f;
+    [SerializeField] float AtkPower = 1.4f;
 
     public PlayerStat(PlayerStatBase playerStatBase, int level)
     {
         Prefab = playerStatBase.Prefab;
         Nom = playerStatBase.name;
         lvl = level;
-        MaxHp = Mathf.FloorToInt(playerStatBase.BaseHp * Mathf.Pow(lvl, HpPower));    //hp en fonction du niveau : on fait hp de base * le niveau^HpPower(=1.3) et tout ça arrondit au plus bas 
+        MaxHp = Mathf.FloorToInt(playerStatBase.BaseHp + Mathf.Pow(lvl, HpPower));    //hp en fonction du niveau : on fait hp de base * le niveau^HpPower(=1.3) et tout ça arrondit au plus bas 
         CurrentHp = MaxHp;
         Atk = Mathf.FloorToInt(playerStatBase.BaseAtk * Mathf.Pow(lvl, AtkPower));
     }
