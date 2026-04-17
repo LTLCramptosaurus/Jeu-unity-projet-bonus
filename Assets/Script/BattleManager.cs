@@ -45,33 +45,34 @@ public class BattleManager : MonoBehaviour
         //Enemy
         if(m_nbEnemy == 1)
         {
-            m_EnemySpawn[0] = vue.transform.GetChild(0).transform.GetChild(0).transform.GetChild(1);
+            m_EnemySpawn[0] = vue.transform.Find("Spawner/SpawnerEnemy/SpawnEnemy2");
         }else if(m_nbEnemy == 2)
         {
-            m_EnemySpawn[0] = vue.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0);
-            m_EnemySpawn[1] = vue.transform.GetChild(0).transform.GetChild(0).transform.GetChild(2);
+            m_EnemySpawn[0] = vue.transform.Find("Spawner/SpawnerEnemy/SpawnEnemy3");
+            m_EnemySpawn[1] = vue.transform.Find("Spawner/SpawnerEnemy/SpawnEnemy1");
         }
         else
         {
-            m_EnemySpawn[0] = vue.transform.GetChild(0).transform.GetChild(0).transform.GetChild(1);
-            m_EnemySpawn[1] = vue.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0);
-            m_EnemySpawn[2] = vue.transform.GetChild(0).transform.GetChild(0).transform.GetChild(2);
+            m_EnemySpawn[0] = vue.transform.Find("Spawner/SpawnerEnemy/SpawnEnemy1");
+            m_EnemySpawn[1] = vue.transform.Find("Spawner/SpawnerEnemy/SpawnEnemy2");
+            m_EnemySpawn[2] = vue.transform.Find("Spawner/SpawnerEnemy/SpawnEnemy3");
         }
 
         //Player
         if(m_nbPlayer == 1)
         {
-            m_PlayerSpawn[0] = vue.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1);
-        }else if(m_nbPlayer == 2)
+            m_PlayerSpawn[0] = vue.transform.Find("Spawner/SpawnerAllier/SpawnAllier2");
+        }
+        else if(m_nbPlayer == 2)
         {
-            m_PlayerSpawn[0] = vue.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0);
-            m_PlayerSpawn[1] = vue.transform.GetChild(0).transform.GetChild(1).transform.GetChild(2);
+            m_PlayerSpawn[0] = vue.transform.Find("Spawner/SpawnerAllier/SpawnAllier3");
+            m_PlayerSpawn[1] = vue.transform.Find("Spawner/SpawnerAllier/spawnAllier1");
         }
         else
         {
-            m_PlayerSpawn[0] = vue.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1);
-            m_PlayerSpawn[1] = vue.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0);
-            m_PlayerSpawn[2] = vue.transform.GetChild(0).transform.GetChild(1).transform.GetChild(2);
+            m_PlayerSpawn[0] = vue.transform.Find("Spawner/SpawnerAllier/SpawnAllier1");
+            m_PlayerSpawn[1] = vue.transform.Find("Spawner/SpawnerAllier/SpawnAllier2");
+            m_PlayerSpawn[2] = vue.transform.Find("Spawner/SpawnerAllier/SpawnAllier3");
         }
     }
 

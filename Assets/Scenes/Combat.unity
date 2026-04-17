@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 284027909}
   m_Layer: 0
-  m_Name: spawnEnnemie2
+  m_Name: SpawnEnemy2
   m_TagString: Enemy
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f389febf3df2f4cac260b47226e62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  m_spriteRenderer: {fileID: 0}
+  m_spriteRenderer: {fileID: 370079024}
 --- !u!212 &370079024
 SpriteRenderer:
   serializedVersion: 2
@@ -265,7 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 402375845}
   m_Layer: 0
-  m_Name: spawnAllier3
+  m_Name: SpawnAllier3
   m_TagString: Player
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -296,7 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 479353486}
   m_Layer: 0
-  m_Name: spawnEnnemie3
+  m_Name: SpawnEnemy3
   m_TagString: Enemy
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -327,7 +327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 487558078}
   m_Layer: 0
-  m_Name: spawnEnnemie2
+  m_Name: SpawnEnemy2
   m_TagString: Enemy
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -584,7 +584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 679109785}
   m_Layer: 0
-  m_Name: spawnEnnemie1
+  m_Name: SpawnEnemy1
   m_TagString: Enemy
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -817,7 +817,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1079762103}
   m_Layer: 0
-  m_Name: spawnEnnemie3
+  m_Name: SpawnEnemy3
   m_TagString: Enemy
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -881,7 +881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1154933487}
   m_Layer: 0
-  m_Name: spawnEnnemie1
+  m_Name: SpawnEnemy1
   m_TagString: Enemy
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -980,7 +980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1548794377}
   m_Layer: 0
-  m_Name: spawnAllier1
+  m_Name: SpawnAllier1
   m_TagString: Player
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1011,7 +1011,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1550565117}
   m_Layer: 0
-  m_Name: spawnAllier2
+  m_Name: SpawnAllier2
   m_TagString: Player
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1258,7 +1258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1792298979}
   m_Layer: 0
-  m_Name: spawnAllier1
+  m_Name: SpawnAllier1
   m_TagString: Player
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1322,7 +1322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1908020223}
   m_Layer: 0
-  m_Name: spawnAllier3
+  m_Name: SpawnAllier3
   m_TagString: Player
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1458,7 +1458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2136399229}
   m_Layer: 0
-  m_Name: spawnAllier2
+  m_Name: SpawnAllier2
   m_TagString: Player
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
