@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager m_Instance;
-    private PlayerStatBase[] m_joueur;
+    [SerializeField] private PlayerStatBase[] m_joueur;
     private List<PlayerStat> m_PlayerTeam = new List<PlayerStat>();
     private bool m_PlayerStart = false;
     private DetailCombat m_detail;

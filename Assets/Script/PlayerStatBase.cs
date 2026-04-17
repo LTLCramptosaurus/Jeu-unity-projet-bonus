@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PlayerStat", menuName = "Scriptable Objects/PlayerStatBase")]
+[CreateAssetMenu(fileName = "PlayerStatBase", menuName = "Scriptable Objects/PlayerStatBase")]
 public class PlayerStatBase : ScriptableObject
 {
     public int m_BaseHp;

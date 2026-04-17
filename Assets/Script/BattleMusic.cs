@@ -6,7 +6,7 @@ public class BattleMusic : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        m_lecteur.clip = GameManager.m_Instance.m_detail.GetMusic(); 
+        m_lecteur.clip = GameManager.m_Instance.Detail.GetMusic(); 
         m_lecteur.Play(); 
     }
 

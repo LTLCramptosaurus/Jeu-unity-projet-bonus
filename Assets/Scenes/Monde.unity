@@ -384,10 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   m_joueur:
-  - {fileID: 11400000, guid: 1b4159c55c83b6d4581183bb3a8da911, type: 2}
-  - {fileID: 11400000, guid: 1b4159c55c83b6d4581183bb3a8da911, type: 2}
-  - {fileID: 11400000, guid: 1b4159c55c83b6d4581183bb3a8da911, type: 2}
-  m_JoueurStart: 0
+  - {fileID: 0}
 --- !u!4 &789007011
 Transform:
   m_ObjectHideFlags: 0

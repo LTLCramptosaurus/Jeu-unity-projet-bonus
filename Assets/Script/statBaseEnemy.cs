@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "statBaseEnemy", menuName = "Scriptable Objects/statBaseEnemy")]
+[CreateAssetMenu(fileName = "StatBaseEnemy", menuName = "Scriptable Objects/StatBaseEnemy")]
 public class StatBaseEnemy : ScriptableObject
 {
     public GameObject m_Prefab;
