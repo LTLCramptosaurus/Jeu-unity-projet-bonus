@@ -2,16 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    public PlayerStatBase[] joueur;
-    public List<PlayerStat> PlayerTeam = new List<PlayerStat>();
-    public bool JoueurStart = false;
+    public static GameManager m_Instance;
+    public PlayerStatBase[] m_joueur;
+    public List<PlayerStat> m_PlayerTeam = new List<PlayerStat>();
+    public bool m_JoueurStart = false;
 
     void Awake()
     {
-        if (Instance == null)
+        if (m_Instance == null)
         {
-            Instance = this;
+            m_Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for(int i=0;i<3;i++)
+        for(int i=0;i< m_joueur.Length;i++)
         {
-            PlayerTeam.Add(new PlayerStat(joueur[i], 1));
+           m_PlayerTeam.Add(new PlayerStat(m_joueur[i], 1));
         }
     }
 
@@ -35,9 +35,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public DetailCombat detail;
+    public DetailCombat m_detail;
     public void LancerCombat(InfoCombat Info, StatBaseEnemy[] StatEquipe)
     {
-        detail = new DetailCombat(Info, StatEquipe);    // pour être sur de remettre à zero detail à chaque combat
+        m_detail = new DetailCombat(Info, StatEquipe);    // pour être sur de remettre à zero m_detail à chaque combat
     }
 }

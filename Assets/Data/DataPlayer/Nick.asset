@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Nick
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatBase
-  BaseHp: 100
-  BaseAtk: 100
-  Prefab: {fileID: 912815074819700749, guid: 82a0e9ba0bdb77341b9220a192874db9, type: 3}
+  m_BaseHp: 100
+  m_BaseAtk: 100
+  m_Prefab: {fileID: 912815074819700749, guid: 82a0e9ba0bdb77341b9220a192874db9, type: 3}

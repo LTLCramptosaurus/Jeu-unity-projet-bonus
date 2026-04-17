@@ -3,59 +3,59 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "InfoCombat", menuName = "Scriptable Objects/InfoCombat")]
 public class InfoCombat : ScriptableObject
 {
-    public Sprite Fond;
-    public AudioClip Music;
-    public int lvlMax;
-    public int lvlMin;
+    public Sprite m_Fond;
+    public AudioClip m_Music;
+    public int m_lvlMax;
+    public int m_lvlMin;
 }
 
 public class DetailCombat
 {
     [Header("Variable importante")]
-    Sprite Fond;
-    AudioClip Music;
-    StatEnemy[] Equipe;
-    int TotalXp = 0;
-    int TotalGold = 0;
+    Sprite m_Fond;
+    AudioClip m_Music;
+    StatEnemy[] m_Equipe;
+    int m_TotalXp = 0;
+    int m_TotalGold = 0;
 
     public DetailCombat(InfoCombat info, StatBaseEnemy[] StatEquipe)
     {
-        Fond = info.Fond;
-        Music = info.Music;
-        Equipe = new StatEnemy[StatEquipe.Length];
+        m_Fond = info.m_Fond;
+        m_Music = info.m_Music;
+        m_Equipe = new StatEnemy[StatEquipe.Length];
         for(int i = 0; i < StatEquipe.Length ; i++)
         {
-            Equipe[i] = new StatEnemy(StatEquipe[i], Random.Range(info.lvlMin, info.lvlMax + 1));
+            m_Equipe[i] = new StatEnemy(StatEquipe[i], Random.Range(info.m_lvlMin, info.m_lvlMax + 1));
         }
-        foreach(StatEnemy enemy in Equipe)
+        foreach(StatEnemy enemy in m_Equipe)
         {
-            TotalGold += enemy.GetGold();
-            TotalXp += enemy.GetXp();
+            m_TotalGold += enemy.GetGold();
+            m_TotalXp += enemy.GetXp();
         }
     }
 
     public Sprite GetFond()
     {
-        return Fond;
+        return m_Fond;
     }
 
     public AudioClip GetMusic()
     {
-        return Music;
+        return m_Music;
     }
 
     public StatEnemy[] GetEquipe()
     {
-        return Equipe;
+        return m_Equipe;
     }
 
     public int GetTotalXp()
     {
-        return TotalXp;
+        return m_TotalXp;
     }
 
     public int GetTotalGold()
     {
-        return TotalGold;
+        return m_TotalGold;
     }
 }

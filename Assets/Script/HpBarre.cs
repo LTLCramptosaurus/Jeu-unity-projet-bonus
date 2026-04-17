@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class HpBarre : MonoBehaviour
 {
-    public Slider slider;
+    public Slider m_slider;
 
     public void UpdateSlider(float maxHp, float CurrentHp)
     {
-        slider.value = CurrentHp / maxHp;
+        m_slider.value = CurrentHp / maxHp;
     }
     // Update is called once per frame
     void Update()

@@ -105,9 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdab336f2dcf2ea47a4f88398e1517c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  UI: {fileID: 6974836701051274222, guid: 668a15f0d6c85c44fafafa85ff0cbbf8, type: 3}
-  CurrentHp: 0
-  canvas: {fileID: 0}
+  m_UI: {fileID: 6974836701051274222, guid: 668a15f0d6c85c44fafafa85ff0cbbf8, type: 3}
+  m_canvas: {fileID: 0}
+  m_hpBarre: {fileID: 0}
 --- !u!1 &9201673507094434034
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class GestionFond : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
+    public SpriteRenderer m_spriteRenderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spriteRenderer.sprite = GameManager.Instance.detail.GetFond();
+        m_spriteRenderer.sprite = GameManager.m_Instance.m_detail.GetFond();
     }
 
     // Update is called once per frame

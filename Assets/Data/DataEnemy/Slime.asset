@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1093843f7023a04d8c95b1b82b3e6cd, type: 3}
   m_Name: Slime
   m_EditorClassIdentifier: Assembly-CSharp::statBaseEnemie
-  Prefab: {fileID: 4207361266778817552, guid: d8bc2143f55654741acc180bbc754f69, type: 3}
-  BaseHP: 50
-  BaseAtk: 10
-  BaseXP: 20
-  BaseGold: 10
+  m_Prefab: {fileID: 4207361266778817552, guid: d8bc2143f55654741acc180bbc754f69, type: 3}
+  m_BaseHP: 50
+  m_BaseAtk: 10
+  m_BaseXP: 20
+  m_BaseGold: 10

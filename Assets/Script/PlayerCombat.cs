@@ -4,23 +4,23 @@ using TMPro;
 public class PlayerCombat : MonoBehaviour
 {
     [Header("Variable Principale")]
-    public PlayerStat playerStat;
-    public GameObject canvas;
-    public HpBarre hpBarre;
-    public GameObject UI;
+    public PlayerStat m_playerStat;
+    public GameObject m_canvas;
+    public HpBarre m_hpBarre;
+    public GameObject m_UI;
 
     public void Setup(PlayerStat pS)
     {
-        playerStat = pS;
+        m_playerStat = pS;
         Vector3 co = transform.GetChild(0).transform.position;
-        GameObject tempo = Instantiate(UI,co, Quaternion.identity);      
-        canvas = GameObject.Find("Canvas");
-        tempo.transform.SetParent(canvas.transform,false);
+        GameObject tempo = Instantiate(m_UI,co, Quaternion.identity);      
+        m_canvas = GameObject.Find("Canvas");
+        tempo.transform.SetParent(m_canvas.transform,false);
         tempo.transform.position = Camera.main.WorldToScreenPoint(co);      //le Camera machin truc c'est une fonction qui donne les co pour le canvas avec les co du vrai monde
         TMP_Text leTexte = tempo.GetComponentInChildren<TMP_Text>();
         leTexte.text = pS.GetNom();
-        hpBarre = tempo.GetComponentInChildren<HpBarre>();
-        hpBarre.UpdateSlider(pS.GetMaxHp(),pS.GetCurrentHp());
+        m_hpBarre = tempo.GetComponentInChildren<HpBarre>();
+        m_hpBarre.UpdateSlider(pS.GetMaxHp(),pS.GetCurrentHp());
     }
 
     void Start()
@@ -35,7 +35,7 @@ public class PlayerCombat : MonoBehaviour
 
     public void TakeDamage(int degat)
     {
-        playerStat.TakeDamage(degat);
-        hpBarre.UpdateSlider(playerStat.GetMaxHp(),playerStat.GetCurrentHp());
+        m_playerStat.TakeDamage(degat);
+        m_hpBarre.UpdateSlider(m_playerStat.GetMaxHp(), m_playerStat.GetCurrentHp());
     }
 }

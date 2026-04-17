@@ -5,73 +5,73 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    public GameObject Spawner;
-    public Transform[] EnemySpawn;
-    int nbEnemy;
-    public Transform[] PlayerSpawn;
-    int nbPlayer;
-    public List<Enemy> Enemy = new List<Enemy>();
-    public List<PlayerCombat> playerCombat = new List<PlayerCombat>();
-    public bool Fin = false;
-    public int tour = 0;
+    public GameObject m_vue;
+    public Transform[] m_EnemySpawn;
+    int m_nbEnemy;
+    public Transform[] m_PlayerSpawn;
+    int m_nbPlayer;
+    public List<Enemy> m_Enemy = new List<Enemy>();
+    public List<PlayerCombat> m_playerCombat = new List<PlayerCombat>();
+    private bool m_Fin = false;
+    public int m_tour = 0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        nbEnemy = GameManager.Instance.detail.GetEquipe().Length;
-        nbPlayer = GameManager.Instance.PlayerTeam.Count;
-        Position();
-        for(int i=0; i < nbEnemy ; i++)
+        m_nbEnemy = GameManager.m_Instance.m_detail.GetEquipe().Length;
+        m_nbPlayer = GameManager.m_Instance.m_PlayerTeam.Count;
+        Position(m_vue);
+        for(int i=0; i < m_nbEnemy ; i++)
         {
-            GameObject EnemyTempo = Instantiate(GameManager.Instance.detail.GetEquipe()[i].GetPrefab(),EnemySpawn[i].position,Quaternion.identity);
-            Enemy.Add(EnemyTempo.GetComponent<Enemy>());
-            Enemy[i].Setup(GameManager.Instance.detail.GetEquipe()[i]);
+            GameObject Enemy = Instantiate(GameManager.m_Instance.m_detail.GetEquipe()[i].GetPrefab(),m_EnemySpawn[i].position,Quaternion.identity);
+            m_Enemy.Add(Enemy.GetComponent<Enemy>());
+            m_Enemy[i].Setup(GameManager.m_Instance.m_detail.GetEquipe()[i]);
         }
-        for(int i=0; i < nbPlayer ; i++)
+        for(int i=0; i < m_nbPlayer ; i++)
         {
-            GameObject PlayerTempo = Instantiate(GameManager.Instance.PlayerTeam[i].GetPrefab(),PlayerSpawn[i].position,Quaternion.identity);
-            playerCombat.Add(PlayerTempo.GetComponent<PlayerCombat>());
-            playerCombat[i].Setup(GameManager.Instance.PlayerTeam[i]);
+            GameObject Player = Instantiate(GameManager.m_Instance.m_PlayerTeam[i].GetPrefab(),m_PlayerSpawn[i].position,Quaternion.identity);
+            m_playerCombat.Add(Player.GetComponent<PlayerCombat>());
+            m_playerCombat[i].Setup(GameManager.m_Instance.m_PlayerTeam[i]);
         }
 
         StartCoroutine(LancerCombat());
     }
 
-    public void Position() //rempli les tableaux de spawner en fonction du nombre de joueur/enemy
+    public void Position(GameObject vue) //rempli les tableaux de spawner en fonction du nombre de joueur/enemy
     {
-        EnemySpawn = new Transform[nbEnemy];
-        PlayerSpawn = new Transform[nbPlayer];
+        m_EnemySpawn = new Transform[m_nbEnemy];
+        m_PlayerSpawn = new Transform[m_nbPlayer];
 
         //Enemy
-        if(nbEnemy == 1)
+        if(m_nbEnemy == 1)
         {
-            EnemySpawn[0] = Spawner.transform.GetChild(0).transform.GetChild(1);
-        }else if(nbEnemy == 2)
+            m_EnemySpawn[0] = vue.transform.GetChild(0).transform.GetChild(0).transform.GetChild(1);
+        }else if(m_nbEnemy == 2)
         {
-            EnemySpawn[0] = Spawner.transform.GetChild(0).transform.GetChild(0);
-            EnemySpawn[1] = Spawner.transform.GetChild(0).transform.GetChild(2);
+            m_EnemySpawn[0] = vue.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0);
+            m_EnemySpawn[1] = vue.transform.GetChild(0).transform.GetChild(0).transform.GetChild(2);
         }
         else
         {
-            EnemySpawn[0] = Spawner.transform.GetChild(0).transform.GetChild(1);
-            EnemySpawn[1] = Spawner.transform.GetChild(0).transform.GetChild(0);
-            EnemySpawn[2] = Spawner.transform.GetChild(0).transform.GetChild(2);
+            m_EnemySpawn[0] = vue.transform.GetChild(0).transform.GetChild(0).transform.GetChild(1);
+            m_EnemySpawn[1] = vue.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0);
+            m_EnemySpawn[2] = vue.transform.GetChild(0).transform.GetChild(0).transform.GetChild(2);
         }
 
         //Player
-        if(nbPlayer == 1)
+        if(m_nbPlayer == 1)
         {
-            PlayerSpawn[0] = Spawner.transform.GetChild(1).transform.GetChild(1);
-        }else if(nbPlayer == 2)
+            m_PlayerSpawn[0] = vue.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1);
+        }else if(m_nbPlayer == 2)
         {
-            PlayerSpawn[0] = Spawner.transform.GetChild(1).transform.GetChild(0);
-            PlayerSpawn[1] = Spawner.transform.GetChild(1).transform.GetChild(2);
+            m_PlayerSpawn[0] = vue.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0);
+            m_PlayerSpawn[1] = vue.transform.GetChild(0).transform.GetChild(1).transform.GetChild(2);
         }
         else
         {
-            PlayerSpawn[0] = Spawner.transform.GetChild(1).transform.GetChild(1);
-            PlayerSpawn[1] = Spawner.transform.GetChild(1).transform.GetChild(0);
-            PlayerSpawn[2] = Spawner.transform.GetChild(1).transform.GetChild(2);
+            m_PlayerSpawn[0] = vue.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1);
+            m_PlayerSpawn[1] = vue.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0);
+            m_PlayerSpawn[2] = vue.transform.GetChild(0).transform.GetChild(1).transform.GetChild(2);
         }
     }
 
@@ -84,35 +84,35 @@ public class BattleManager : MonoBehaviour
 
     public IEnumerator LancerCombat()
     {
-        if (GameManager.Instance.JoueurStart)
+        if (GameManager.m_Instance.m_JoueurStart)
         {
-            for (int i=0; i < playerCombat.Count; i++)
+            for (int i=0; i < m_playerCombat.Count; i++)
             {
-                playerCombat[i].Play();
+                m_playerCombat[i].Play();
                 yield return new WaitForSeconds(10); ;
             }
-            for(int i=0;i < Enemy.Count; i++)
+            for(int i=0;i < m_Enemy.Count; i++)
             {
-                StartCoroutine(Enemy[i].Play(playerCombat));
+                StartCoroutine(m_Enemy[i].Play(m_playerCombat));
                 yield return new WaitForSeconds(10); ;
             }
         }
         else
         {
-            for (int i=0;i < Enemy.Count; i++)
+            for (int i=0;i < m_Enemy.Count; i++)
             {
                 Debug.Log("5");
-                StartCoroutine(Enemy[i].Play(playerCombat));
+                StartCoroutine(m_Enemy[i].Play(m_playerCombat));
                 yield return new WaitForSeconds(10); ;
             }
-            for(int i=0; i < playerCombat.Count; i++)
+            for(int i=0; i < m_playerCombat.Count; i++)
             {
                 Debug.Log("7");
-                playerCombat[i].Play(); 
+                m_playerCombat[i].Play(); 
                 yield return new WaitForSeconds(10); ;
             }
         }
-        if (!Fin)
+        if (!m_Fin)
         {
             StartCoroutine(LancerCombat());
         }

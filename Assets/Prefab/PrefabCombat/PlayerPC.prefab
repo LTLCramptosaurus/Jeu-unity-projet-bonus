@@ -105,9 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71fc0721e95952458b44446add5322f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
-  canvas: {fileID: 0}
-  hpBarre: {fileID: 0}
-  UI: {fileID: 6974836701051274222, guid: 668a15f0d6c85c44fafafa85ff0cbbf8, type: 3}
+  m_canvas: {fileID: 0}
+  m_hpBarre: {fileID: 0}
+  m_UI: {fileID: 6974836701051274222, guid: 668a15f0d6c85c44fafafa85ff0cbbf8, type: 3}
 --- !u!1 &8881281312599604248
 GameObject:
   m_ObjectHideFlags: 0

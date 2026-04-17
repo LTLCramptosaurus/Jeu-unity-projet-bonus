@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public float speed = 5;
-    public InputActionReference move;
-    Vector2 moveDirection = Vector2.zero;
+    public Rigidbody2D m_rb;
+    public float m_speed = 5;
+    public InputActionReference m_move;
+    Vector2 m_moveDirection = Vector2.zero;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,23 +18,23 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        move.action.Enable();
+        m_move.action.Enable();
     }
 
     private void OnDisable()
     {
-        move.action.Disable();
+        m_move.action.Disable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveDirection = move.action.ReadValue<Vector2>();
+        m_moveDirection = m_move.action.ReadValue<Vector2>();
     }
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
+        m_rb.linearVelocity = new Vector2(m_moveDirection.x * m_speed, m_moveDirection.y * m_speed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             iaScript iaScript = collision.GetComponent<iaScript>();
-            GameManager.Instance.LancerCombat(iaScript.Info, iaScript.StatBaseEnemy);
+            GameManager.m_Instance.LancerCombat(iaScript.m_Info, iaScript.m_StatBaseEnemy);
             SceneManager.LoadScene("Combat");
         }
     }

@@ -3,20 +3,20 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerStat", menuName = "Scriptable Objects/PlayerStatBase")]
 public class PlayerStatBase : ScriptableObject
 {
-    public int BaseHp;
-    public int BaseAtk;
-    public GameObject Prefab;
+    public int m_BaseHp;
+    public int m_BaseAtk;
+    public GameObject m_Prefab;
 }
 
 public class PlayerStat
 {
     [Header("Variable Principale")]
-    GameObject Prefab;
-    int Atk;
-    int MaxHp;
-    int CurrentHp;
-    int lvl;
-    string Nom;
+    GameObject m_Prefab;
+    int m_Atk;
+    int m_MaxHp;
+    int m_CurrentHp;
+    int m_lvl;
+    string m_Nom;
 
     [Header("Varibalbe Secondaire")]
     // le [SerializeField] permet d'afficher la variable dans l'inspecteur sans la rendre public
@@ -25,47 +25,47 @@ public class PlayerStat
 
     public PlayerStat(PlayerStatBase playerStatBase, int level)
     {
-        Prefab = playerStatBase.Prefab;
-        Nom = playerStatBase.name;
-        lvl = level;
-        MaxHp = Mathf.FloorToInt(playerStatBase.BaseHp + Mathf.Pow(lvl, HpPower));    //hp en fonction du niveau : on fait hp de base * le niveau^HpPower(=1.3) et tout ça arrondit au plus bas 
-        CurrentHp = MaxHp;
-        Atk = Mathf.FloorToInt(playerStatBase.BaseAtk * Mathf.Pow(lvl, AtkPower));
+        m_Prefab = playerStatBase.m_Prefab;
+        m_Nom = playerStatBase.name;
+        m_lvl = level;
+        m_MaxHp = Mathf.FloorToInt(playerStatBase.m_BaseHp + Mathf.Pow(m_lvl, HpPower));    //hp en fonction du niveau : on fait hp de base * le niveau^HpPower(=1.3) et tout ça arrondit au plus bas 
+        m_CurrentHp = m_MaxHp;
+        m_Atk = Mathf.FloorToInt(playerStatBase.m_BaseAtk * Mathf.Pow(m_lvl, AtkPower));
     }
 
     public GameObject GetPrefab()
     {
-        return Prefab;
+        return m_Prefab;
     }
 
     public int GetMaxHp()
     {
-        return MaxHp;
+        return m_MaxHp;
     }
 
     public int GetCurrentHp()
     {
-        return CurrentHp;
+        return m_CurrentHp;
     }
 
     public int GetLvl()
     {
-        return lvl;
+        return m_lvl;
     }
 
     public int GetAtk()
     {
-        return Atk;
+        return m_Atk;
     }
 
     public string GetNom()
     {
-        return Nom;
+        return m_Nom;
     }
 
     public void TakeDamage(int damage)
     {
-        CurrentHp -= damage;
+        m_CurrentHp -= damage;
     }
     
 }

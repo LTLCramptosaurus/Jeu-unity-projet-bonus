@@ -6,82 +6,82 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "statBaseEnemy", menuName = "Scriptable Objects/statBaseEnemy")]
 public class StatBaseEnemy : ScriptableObject
 {
-    public GameObject Prefab;
-    public int BaseHP;
-    public int BaseAtk;
-    public int BaseXP;
-    public int BaseGold;    //argent drop de base (pas forcement de l'or)
+    public GameObject m_Prefab;
+    public int m_BaseHP;
+    public int m_BaseAtk;
+    public int m_BaseXP;
+    public int m_BaseGold;    //argent drop de base (pas forcement de l'or)
 }
 
 public class StatEnemy
 {
     [Header("Variable Principale")]
-    GameObject Prefab;
-    int Hp;
-    int CurrentHp;
-    int Atk;
-    int Xp;
-    int Gold;
-    string Nom;
-    int Level;
+    GameObject m_Prefab;
+    int m_Hp;
+    int m_CurrentHp;
+    int m_Atk;
+    int m_Xp;
+    int m_Gold;
+    string m_Nom;
+    int m_Level;
 
     [Header("Varibalbe Secondaire")]
-    [SerializeField] float HpPower = 1.8f;
-    [SerializeField] float AtkPower = 1.5f;
-    [SerializeField] float XpPower = 1.5f;
-    [SerializeField] float GoldPower = 1.5f;
+    [SerializeField] float m_HpPower = 1.8f;
+    [SerializeField] float m_AtkPower = 1.5f;
+    [SerializeField] float m_XpPower = 1.5f;
+    [SerializeField] float m_GoldPower = 1.5f;
 
     public StatEnemy(StatBaseEnemy stat, int lvl)
     {
-        Hp = Mathf.FloorToInt(stat.BaseHP * Mathf.Pow(lvl, HpPower));    
-        CurrentHp = Hp;
-        Atk = Mathf.FloorToInt(stat.BaseAtk + Mathf.Pow(lvl, AtkPower));
-        Xp = Mathf.FloorToInt(stat.BaseXP + Mathf.Pow(lvl, XpPower));
-        Gold = Mathf.FloorToInt(stat.BaseGold + Mathf.Pow(lvl, GoldPower));
-        Nom = stat.name;
-        Prefab = stat.Prefab;
-        Level = lvl;
+        m_Hp = Mathf.FloorToInt(stat.m_BaseHP * Mathf.Pow(lvl, m_HpPower));    
+        m_CurrentHp = m_Hp;
+        m_Atk = Mathf.FloorToInt(stat.m_BaseAtk + Mathf.Pow(lvl, m_AtkPower));
+        m_Xp = Mathf.FloorToInt(stat.m_BaseXP + Mathf.Pow(lvl, m_XpPower));
+        m_Gold = Mathf.FloorToInt(stat.m_BaseGold + Mathf.Pow(lvl, m_GoldPower));
+        m_Nom = stat.name;
+        m_Prefab = stat.m_Prefab;
+        m_Level = lvl;
     }
     public GameObject GetPrefab()
     {
-        return Prefab;
+        return m_Prefab;
     }
     public int GetHp()
     {
-        return Hp;
+        return m_Hp;
     }
     public int GetCurrentHp()
     {
-        return CurrentHp;
+        return m_CurrentHp;
     }
 
     public int GetAtk()
     {
-        return Atk;
+        return m_Atk;
     }
 
     public int GetXp()
     {
-        return Xp;
+        return m_Xp;
     }
 
     public int GetGold()
     {
-        return Gold;
+        return m_Gold;
     }
 
     public string GetNom()
     {
-        return Nom;
+        return m_Nom;
     }
 
     public int GetLevel()
     {
-        return Level;
+        return m_Level;
     }
 
     public void TakeDamage(int damage)
     {
-        CurrentHp -= damage;
+        m_CurrentHp -= damage;
     }
 }

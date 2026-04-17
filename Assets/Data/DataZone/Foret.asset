@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee7a1dc4b729d40b8a08cebe1efc4e, type: 3}
   m_Name: Foret
   m_EditorClassIdentifier: Assembly-CSharp::InfoCombat
-  Fond: {fileID: 7482667652216324306, guid: fbe864002cae82841a9818c164e99fce, type: 3}
-  Music: {fileID: 8300000, guid: e244c1ddfd55ec64c81d195499d398e9, type: 3}
-  lvlMax: 3
-  lvlMin: 1
+  m_Fond: {fileID: 7482667652216324306, guid: fbe864002cae82841a9818c164e99fce, type: 3}
+  m_Music: {fileID: 8300000, guid: e244c1ddfd55ec64c81d195499d398e9, type: 3}
+  m_lvlMax: 3
+  m_lvlMin: 1
