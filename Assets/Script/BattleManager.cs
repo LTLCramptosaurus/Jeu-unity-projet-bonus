@@ -18,20 +18,20 @@ public class BattleManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        m_nbEnemy = GameManager.m_Instance.m_detail.GetEquipe().Length;
-        m_nbPlayer = GameManager.m_Instance.m_PlayerTeam.Count;
+        m_nbEnemy = GameManager.m_Instance.Detail.GetEquipe().Length;
+        m_nbPlayer = GameManager.m_Instance.PlayerTeam.Count;
         Position(m_vue);
         for(int i=0; i < m_nbEnemy ; i++)
         {
-            GameObject Enemy = Instantiate(GameManager.m_Instance.m_detail.GetEquipe()[i].GetPrefab(),m_EnemySpawn[i].position,Quaternion.identity);
+            GameObject Enemy = Instantiate(GameManager.m_Instance.GetPrefabEnemy(i),m_EnemySpawn[i].position,Quaternion.identity);
             m_Enemy.Add(Enemy.GetComponent<Enemy>());
-            m_Enemy[i].Setup(GameManager.m_Instance.m_detail.GetEquipe()[i]);
+            m_Enemy[i].Setup(GameManager.m_Instance.Detail.GetEquipe()[i]);
         }
         for(int i=0; i < m_nbPlayer ; i++)
         {
-            GameObject Player = Instantiate(GameManager.m_Instance.m_PlayerTeam[i].GetPrefab(),m_PlayerSpawn[i].position,Quaternion.identity);
+            GameObject Player = Instantiate(GameManager.m_Instance.GetPrefabAllier(i),m_PlayerSpawn[i].position,Quaternion.identity);
             m_playerCombat.Add(Player.GetComponent<PlayerCombat>());
-            m_playerCombat[i].Setup(GameManager.m_Instance.m_PlayerTeam[i]);
+            m_playerCombat[i].Setup(GameManager.m_Instance.PlayerTeam[i]);
         }
 
         StartCoroutine(LancerCombat());
@@ -85,7 +85,7 @@ public class BattleManager : MonoBehaviour
 
     public IEnumerator LancerCombat()
     {
-        if (GameManager.m_Instance.m_JoueurStart)
+        if (GameManager.m_Instance.PlayerStart)
         {
             for (int i=0; i < m_playerCombat.Count; i++)
             {
